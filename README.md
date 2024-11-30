@@ -18,26 +18,27 @@ Data Processing
 Once I collect the data, I will clean and structure it:  
 
 Data Cleaning:  
- 
 Remove any unnecessary information (e.g., personal details) from the data.  
 Adjust timestamps to my local time zone.  
-Focus on Key Metrics:  
 
+Focus on Key Metrics:  
 Likes and comments on my posts.  
 Follower growth over time.  
-Merging Data:  
 
+Merging Data:    
 Merge engagement data (likes, comments, etc.) with my posts to identify which types of content get more interaction.  
+
 Data Visualization  
 I will create visualizations to explore the following patterns in my Instagram activity:  
 
 Engagement Trends:  
-
 Visualize how my likes and comments change over time.  
+
 Follower Growth:   
 Analyze trends in how my follower count increases or decreases.  
-Content Type Analysis:  
 
+Content Type Analysis:  
 Explore which types of posts (e.g., photos, videos, stories) receive the most engagement.  
+
 Expected Outcomes  
 Through this project, I aim to gain a clearer understanding of my Instagram usage, identify patterns in how I engage with content, and make more intentional decisions about how I interact with the platform.  
