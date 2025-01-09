@@ -1,44 +1,89 @@
-## Instagram Usage Analysis  
-Motivation  
-I want to analyze my Instagram usage patterns to better understand how I interact with content on the platform. Instagram is my primary social media, and by examining my activity, I aim to discover more about the types of content I engage with, how often I post, and how my interactions change over time. This will help me learn more about my online behavior and how Instagram fits into my daily life.
+## Project Report
 
-Approach  
-To gather data, I will use two main sources:  
+### 1. Motivation
+The project aims to analyze Instagram usage patterns to understand better how the user interacts with content on the platform. By examining activity, the user aims to discover insights about engagement and potential patterns in their Instagram usage. This analysis can help make more intentional decisions about how to interact with the platform.
 
-Instagram Data Export: Requesting my data from Instagram will provide details about the accounts I follow, the posts I’ve liked and commented on, and my personal posts.
-Instagram API: Using the Instagram Graph API, I will scrape additional data, such as engagement metrics (likes, comments, follower counts) for my posts over time.
-Tools
-The following tools will be used to process and analyze the data:  
+### 2. Data Source
+The data for this project is collected from various Instagram exports and API interactions, including:
+- **HTML files**: Exported data files such as `advertisers_using_your_activity_or_information.html`, `post_comments_1.html`, `followers_1.html`, `following.html`, `liked_posts.html`, and `recommended_topics.html`.
+- **Instagram API**: Additional data regarding engagement metrics.
 
-Jupyter Notebook: For coding and documenting the analysis.  
-Pandas: For cleaning and organizing the data.  
-Matplotlib & Seaborn: For creating visualizations and exploring patterns in my Instagram usage.  
-Numpy & Scipy: For statistical analysis of my activity.  
-Data Processing  
-Once I collect the data, I will clean and structure it:  
+### 3. Data Analysis
 
-Data Cleaning:  
-Remove any unnecessary information (e.g., personal details) from the data.  
-Adjust timestamps to my local time zone.  
+#### Techniques Used
 
-Focus on Key Metrics:  
-Likes and comments on my posts.  
-Follower growth over time.  
+1. **Data Collection and Preprocessing**:
+   - **BeautifulSoup**: Used to parse HTML files and extract relevant data.
+   - **Regular Expressions**: Employed to extract specific patterns of information from HTML content.
+   - **Pandas**: For data manipulation and organization into structured DataFrames.
 
-Merging Data:    
-Merge engagement data (likes, comments, etc.) with my posts to identify which types of content get more interaction.  
+2. **Exploratory Data Analysis (EDA)**:
+   - **Descriptive Statistics**: Calculating key metrics such as the number of followers, following, mutual connections, and engagement metrics.
+   - **Data Visualization**: Using `Matplotlib` and `Seaborn` to create visual representations of data trends and distributions.
 
-Data Visualization  
-I will create visualizations to explore the following patterns in my Instagram activity:  
+3. **Clustering and Dimensionality Reduction**:
+   - **Sentence-BERT**: For encoding text data into semantic embeddings.
+   - **K-Means Clustering**: To identify clusters of similar topics or advertisers.
+   - **t-SNE**: For reducing dimensionality and visualizing data in a 2D scatter plot.
 
-Engagement Trends:  
-Visualize how my likes and comments change over time.  
+4. **Sentiment Analysis**:
+   - **TextBlob**: To perform sentiment analysis on comments and classify them as positive, negative, or neutral.
 
-Follower Growth:   
-Analyze trends in how my follower count increases or decreases.  
+#### Stages of Analysis
 
-Content Type Analysis:  
-Explore which types of posts (e.g., photos, videos, stories) receive the most engagement.  
+1. **Extracting Advertiser Data**:
+   - Parsed HTML content to extract the list of advertisers using the user's activity or information.
+   - Applied Sentence-BERT to encode advertiser names into embeddings.
+   - Used K-Means for clustering advertisers and t-SNE for visualization.
 
-Expected Outcomes  
-Through this project, I aim to gain a clearer understanding of my Instagram usage, identify patterns in how I engage with content, and make more intentional decisions about how I interact with the platform.  
+2. **Analyzing Comments**:
+   - Extracted comments from HTML and performed sentiment analysis using TextBlob.
+   - Classified comments into sentiment categories and visualized sentiment distribution.
+
+3. **Examining Followers and Following**:
+   - Extracted usernames of followers and following from HTML.
+   - Compared lists to identify mutual connections, users not following back, and users not followed back.
+
+4. **Investigating Liked Posts**:
+   - Extracted liked posts' data, including usernames, post URLs, and timestamps.
+   - Analyzed the frequency of liked posts over time, most active liking hours, and days.
+   - Identified top users by the number of liked posts.
+
+5. **Exploring Recommended Topics**:
+   - Extracted recommended topics and encoded them using Sentence-BERT.
+   - Applied K-Means clustering and t-SNE for visualization.
+
+### 4. Findings
+
+#### Advertisers
+- Identified clusters of advertisers, with the main meanings being companies like "Shelf Inc.", "BOSS", "Fashion Nova", etc.
+
+#### Comments
+- Most comments extracted were positive, with a smaller proportion being neutral or negative.
+- Visualized the sentiment distribution of comments.
+
+#### Followers and Following
+- Analyzed the number of followers, following, mutual connections, and users not following back.
+- Identified a small number of users who were not following back and users not followed back.
+
+#### Liked Posts
+- The frequency of liked posts showed specific patterns over time, with certain hours and days being more active.
+- Identified top users based on the number of liked posts.
+
+#### Recommended Topics
+- Clusters of recommended topics included "Crafts", "Cars & Trucks by Make & Model", "Travel Gear & Accessories", etc.
+- Visualized these clusters using t-SNE and identified links between similar topics.
+
+### 5. Limitations and Future Work
+
+#### Limitations
+- **Data Completeness**: The analysis is limited to the data available in the HTML exports and API interactions. Some data might be missing or incomplete.
+- **Model Accuracy**: The clustering and sentiment analysis rely on pre-trained models, which may not be perfectly accurate for all types of data.
+- **Visualization**: The visualizations provide a general overview but might not capture all nuances in the data.
+
+#### Future Work
+- **Expand Data Collection**: Collect more data from different sources to enhance the analysis.
+- **Improve Clustering**: Experiment with different clustering algorithms and parameters to improve the accuracy of topic clusters.
+- **Deep Dive into Sentiment Analysis**: Use advanced sentiment analysis techniques to gain deeper insights into comment sentiments.
+- **Longitudinal Study**: Conduct a longitudinal study to analyze changes in Instagram usage patterns over a more extended period.
+- **User Behavior Analysis**: Explore additional aspects of user behavior, such as interaction patterns with specific types of content or engagement with different user groups.
